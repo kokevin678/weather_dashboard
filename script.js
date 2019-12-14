@@ -26,11 +26,33 @@ $(document).ready(function() {
         currentContainer.append(currentCity, tempEl, humEl, windEl);
         $("#today").append(currentContainer);
 
+    });
 
-        function current(data) {
-            $()
+    var queryURLforecast = "https://api.openweathermap.org/data/2.5/forecast?q=" + cityName + "&units=imperial&appid=bf9f368bb7a7f00e6fbf08e7fb4f74a7";
+    console.log(queryURLforecast);
+
+    $.ajax({
+        url: queryURLforecast,
+        method: "GET"
+    }).then(function(data) {
+        console.log(data.list[3]);
+
+        var forecast = data.list;
+        for (var i = 0; i < 5; i++) {
+            var forecastDate = data.list[i].dt_txt;
+            var forecastTemp = data.list[i].main.temp;
+            var forecastHum = data.list[i].main.humidity;
+            console.log(forecastDate, forecastTemp, forecastHum);
+        // }
+
+        var forecastDateEl = $("<p class='card-title'>").text(forecastDate);
+        var forecastTempEl = $("<p class='card text'>").text("Temp: " + forecastTemp + " °F");
+        var forecastHumEl = $("<p class='card text'>").text("Humidity: " + forecastHum + " %");
+
+        var forecastContainer = $("<div class='card'>");
+        forecastContainer.append(forecastDateEl, forecastTempEl, forecastHumEl);
+        $("#fiveDayForecast").append(forecastContainer);
         }
-
     });
 
 });
