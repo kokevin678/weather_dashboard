@@ -1,40 +1,109 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
-    <link rel="stylesheet" type="text/css" href="style.css">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+      integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" type="text/css" href="style.css" />
     <title>Weather Dashboard</title>
-</head>
-<body>
-    <div class = "row">
-        <div class="col-sm-4 sideBar">
-            <h3>Search for a City:</h3>
-            <form class="form-inline">
-                <input type="search" class="form-control" id="city" placeholder="Search" aria-label="Search">
-                <button type="button" class="btn btn-primary" id="search" type="submit"><i class="fa fa-search"></i></button>
-            </form>
-            <div class="cityHistory"></div>
-        </div>
+  </head>
+  <body>
+    <!-- Header -->
+    <header>
+      <nav class="navbar navbar-dark bg-dark">
+        <span class="navbar-brand mb-0 h1 w-100 text-center"
+          >Weather Dashboard</span
+        >
+      </nav>
+    </header>
 
-
-        <div class="col-sm-8 main">
-            <div class="card">
-                <div id="today" class="card-body"></div>
+    <!-- Main -->
+    <div class="container">
+      <div class="row">
+        <div class="col-4 bg-light">
+          <h4 class="search-header my-1">Search for a city</h4>
+          <div class="input-group mb-3">
+            <input
+              id="city-input"
+              type="text"
+              class="form-control"
+              placeholder="Enter city name"
+              aria-label="Enter city name"
+            />
+            <div class="input-group-append">
+              <button class="btn btn-primary" type="button" id="search-button">
+                <i class="fas fa-search"></i>
+              </button>
             </div>
-            <div class="row" id="fiveDayForecast">
-                <h3>5-Day Forecast:</h3>
-            </div>
+          </div>
         </div>
+        <div class="col-8">
+          <div class="row mr-0">
+            <div class="col-12 border border-dark m-3 rounded">
+              <div class="row">
+                <div class="col-12">
+                  <span id="city-name" class="city-name align-middle"></span>
+                  <img id="current-pic" src="placeholder" alt="" />
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-12">
+                  <p id="temperature"></p>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-12">
+                  <p id="humidity"></p>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-12">
+                  <p id="wind-speed"></p>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-12 d-flex">
+                  <p id="UV-index"></p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-12">
+              <h3>5-Day Forecast</h3>
+            </div>
+          </div>
+          <div class="row">
+            <div
+              class="col forecast bg-primary text-white ml-3 mb-3 rounded"
+            ></div>
+            <div
+              class="col forecast bg-primary text-white ml-3 mb-3 rounded"
+            ></div>
+            <div
+              class="col forecast bg-primary text-white ml-3 mb-3 rounded"
+            ></div>
+            <div
+              class="col forecast bg-primary text-white ml-3 mb-3 rounded"
+            ></div>
+            <div
+              class="col forecast bg-primary text-white ml-3 mb-3 rounded"
+            ></div>
+          </div>
+        </div>
+      </div>
     </div>
 
-    <!-- <div id="test"></div> -->
-    
+    <!-- Script -->
     <script src="https://code.jquery.com/jquery.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0/js/bootstrap.bundle.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
     <script src="script.js"></script>
-</body>
-</html> 
+  </body>
+</html>
